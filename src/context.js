@@ -4,16 +4,16 @@ const RoomContext = React.createContext();
 // 
 
 class RoomProvider extends Component {
-    state = {
+  state = {
 
-    }
-    render() {
-        return (
-            <RoomContext.Provider value="hello">
-                {this.props.children}
-            </RoomContext.Provider>
-        );
-    }
+  }
+  render() {
+    return (
+      <RoomContext.Provider value={{ ...this.state }}>
+        {this.props.children}
+      </RoomContext.Provider>
+    );
+  }
 }
 
 const RoomConsumer = RoomContext.Consumer;
