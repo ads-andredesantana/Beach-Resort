@@ -1,8 +1,8 @@
 import React from 'react'
-import RoomsFilter from "./RoomsFilter";
-import RoomsList from "./RoomsList";
+import RoomsFilter from "./RoomFilter";
+import RoomsList from "./RoomList";
 
-export default function RoomsContainer() {
+export default function RoomContainer() {
   return (
     <div>
       Hello From Rooms Container
