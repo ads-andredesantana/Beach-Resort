@@ -9,13 +9,17 @@ import { RoomProvider } from './context'
 
 // Rendering the DOM
 ReactDOM.render(
+
   <React.StrictMode>
+
     <RoomProvider>
       <Router>
         <App />
       </Router>
     </RoomProvider>
+
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 
