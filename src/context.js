@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 // Importing the data to be used during Development. It will be refactored durign the Deploy.
-import items from './data'
+// import items from './data'
+// Importing the model amd images from Contentful
+import Client from './Contentful'
+
 
 /* Context provides a way to share values like these between Components 
   without having to explicitly pass a prop through every level of the tree.*/
@@ -25,26 +28,40 @@ class RoomProvider extends Component {
     pets: false
   };
 
+  // Getting the Data from Contentful indicating the Content Type
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "reactBeachResort",
+        order: "sys.createdAt"
+      });
+      // Storing the formated data in a variable.
+      let rooms = this.formatData(response.items);
+      // We filter the values and If the property(featured) is true we add It to the featuredRooms
+      let featuredRooms = rooms.filter(room => room.featured === true);
+      // Mapping the Proce and Size according to the item
+      let maxPrice = Math.max(...rooms.map(item => item.price));
+      let maxSize = Math.max(...rooms.map(item => item.size));
+
+      // Setting the State dynamically and changing the values according to the Request
+      this.setState({
+        rooms,
+        featuredRooms,
+        sortedRooms: rooms,
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize
+      })
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // Creating a function to acces the data coming from data.js
   componentDidMount() {
-    // Storing the formated data in a variable.
-    let rooms = this.formatData(items);
-    // We filter the values and If the property(featured) is true we add It to the featuredRooms
-    let featuredRooms = rooms.filter(room => room.featured === true);
-    // Mapping the Proce and Size according to the item
-    let maxPrice = Math.max(...rooms.map(item => item.price));
-    let maxSize = Math.max(...rooms.map(item => item.size));
-
-    // Setting the State dynamically and changing the values according to the Request
-    this.setState({
-      rooms,
-      featuredRooms,
-      sortedRooms: rooms,
-      loading: false,
-      price: maxPrice,
-      maxPrice,
-      maxSize
-    })
+    this.getData()
   }
 
   // Function to get the Object (all the items) from data.js and format It to be used through the Application
