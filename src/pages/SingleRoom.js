@@ -57,9 +57,12 @@ export default class SingleRoom extends Component {
     const [mainImg, ...defaultImg] = images;
 
     return (
-      // Setting Up a React Fragment to group a list of children without adding extra nodes
+      /* Setting Up a React Fragment to group a list of children without adding extra nodes: 
+         1) Adding a Styled Component to display the images
+         2) Adding a section to display the Info using destructuring with the backtick
+      */
+
       <>
-        {/* Adding a Styled Component to display the images  */}
         < StyledHero img={mainImg || this.state.defaultBcg} >
           <Banner title={`${name} room`}>
             <Link to="/rooms" className="btn-primary">
@@ -107,8 +110,8 @@ export default class SingleRoom extends Component {
             ))}
           </ul>
         </section>
-
       </>
+
     );
   }
 }
