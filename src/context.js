@@ -70,13 +70,41 @@ class RoomProvider extends Component {
   // Event handler to get the input value and pass It to the state.
   handleChange = event => {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    console.log(name, value);
-  }
+    const value = event.type === "checkbox" ? target.checked : target.value;
+    const name = event.target.name;
 
+    // Setting the state after getting the value and filtering (Async Function)
+    this.setState(
+      {
+        [name]: value
+      },
+      this.filterRooms
+    );
+  };
+
+  // Filter the Rooms after the value is set in the state.
   filterRooms = () => {
-    console.log("hello");
+    let {
+      rooms,
+      type,
+      capacity,
+      price,
+      minSize,
+      maxSize,
+      breakfast,
+      pets
+    } = this.state;
+
+    let tempRooms = [...rooms];
+    // filter by type
+    if (type !== "all") {
+      tempRooms = tempRooms.filter(room => room.type === type);
+    }
+    this.setState({
+      sortedRooms: tempRooms
+    });
+
+
   };
 
   // Rendering the values through all the CoomContext Provider

@@ -44,6 +44,7 @@ export default function RoomFilter({ rooms }) {
       <Title title="search rooms" />
 
       <form className="filter-form">
+
         {/* select type */}
         <div className="form-group">
           <label htmlFor="type">room type</label>
@@ -58,6 +59,9 @@ export default function RoomFilter({ rooms }) {
           </select>
         </div>
         {/* end of select type */}
+
+
+
       </form>
     </section>
   )
