@@ -147,8 +147,7 @@ export default function RoomFilter({ rooms }) {
           </div>
 
         </div>
-        {/* end of extras type */}
-
+        {/* end of extras */}
 
       </form>
     </section>
