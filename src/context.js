@@ -70,7 +70,7 @@ class RoomProvider extends Component {
   // Event handler to get the input value and pass It to the state.
   handleChange = event => {
     const target = event.target;
-    const value = event.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = event.target.name;
 
     // Setting the state after getting the value and filtering (Async Function)
@@ -122,6 +122,10 @@ class RoomProvider extends Component {
       tempRooms = tempRooms.filter(room => room.breakfast === true);
     }
 
+    //filter by pets
+    if (pets) {
+      tempRooms = tempRooms.filter(room => room.pets === true);
+    }
 
     // Setting the State values
     this.setState({
