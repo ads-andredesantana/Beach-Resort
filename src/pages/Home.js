@@ -6,7 +6,7 @@ import Services from '../components/Services'
 import FeaturedRooms from '../components/FeaturedRooms'
 
 
-
+// Home Webpage where we control all the main Components.
 export default function Home() {
     return (
         <>
@@ -14,11 +14,12 @@ export default function Home() {
                 <Banner title="luxurious rooms" subtitle="deluxe rooms starting at $299">
                     <Link to='/rooms' className="btn-primary">
                         our rooms
-                </Link>
-
+                    </Link>
                 </Banner>
             </Hero>
+
             <Services />
+
             <FeaturedRooms />
         </>
     )

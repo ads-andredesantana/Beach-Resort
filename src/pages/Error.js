@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import Banner from '../components/Banner'
 import { Link } from 'react-router-dom'
 
-
+// Handling pages without routes that leads to nowhere.
 export default function Error() {
     return (
         <Hero>
