@@ -101,21 +101,26 @@ class RoomProvider extends Component {
     capacity = parseInt(capacity);
     price = parseInt(price);
 
-    // filter by type
+    // filter by Type
     if (type !== "all") {
       tempRooms = tempRooms.filter(room => room.type === type);
     }
 
-    // filter by capacity to return the value bigger or equal to 2
+    // filter by Capacity to return the value bigger or equal to 2
     if (capacity !== 1) {
       tempRooms = tempRooms.filter(room => room.capacity >= capacity);
     }
 
-    // filter by price
+    // filter by Price
     tempRooms = tempRooms.filter(room => room.price <= price);
 
-    //filter by size
+    //filter by Size
     tempRooms = tempRooms.filter(room => room.size >= minSize && room.size <= maxSize);
+
+    //filter by Breakfast
+    if (breakfast) {
+      tempRooms = tempRooms.filter(room => room.breakfast === true);
+    }
 
 
     // Setting the State values
