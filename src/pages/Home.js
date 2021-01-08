@@ -4,6 +4,7 @@ import Banner from '../components/Banner'
 import { Link } from 'react-router-dom'
 import Services from '../components/Services'
 import FeaturedRooms from '../components/FeaturedRooms'
+import Button from '../components/StyledHero';
 
 // Home Webpage where we control all the main Components.
 export default function Home() {
@@ -20,6 +21,10 @@ export default function Home() {
       <Services />
 
       <FeaturedRooms />
+
+      <Button>BBMP</Button>
+
+
     </>
   )
 }
