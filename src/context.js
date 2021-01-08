@@ -33,7 +33,8 @@ class RoomProvider extends Component {
     try {
       let response = await Client.getEntries({
         content_type: "reactBeachResort",
-        order: "sys.createdAt"
+        order: "-fields.price"
+
       });
       // Storing the formated data in a variable.
       let rooms = this.formatData(response.items);
