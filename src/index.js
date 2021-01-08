@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 // import * as serviceWorker from "./serviceWorker";
 import { RoomProvider } from './context'
 
-
+// Rendering the DOM
 ReactDOM.render(
   <React.StrictMode>
     <RoomProvider>

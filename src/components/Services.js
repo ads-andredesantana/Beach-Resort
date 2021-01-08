@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from 'react-icons/fa'
 import Title from './Title'
 
-
+// Class created to display the Services inside the Component. 
 export default class Services extends Component {
+	// Creating a State to manage the data.
 	state = {
 		services: [
 			{
@@ -28,6 +29,8 @@ export default class Services extends Component {
 			}
 		]
 	}
+
+	/*Accessing the Services from the Components State. We Map the items by index and destructure to display the data*/
 	render() {
 		return (
 			<section className="services">

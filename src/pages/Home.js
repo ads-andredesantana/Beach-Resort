@@ -5,23 +5,22 @@ import { Link } from 'react-router-dom'
 import Services from '../components/Services'
 import FeaturedRooms from '../components/FeaturedRooms'
 
-
 // Home Webpage where we control all the main Components.
 export default function Home() {
-    return (
-        <>
-            <Hero>
-                <Banner title="luxurious rooms" subtitle="deluxe rooms starting at $299">
-                    <Link to='/rooms' className="btn-primary">
-                        our rooms
-                    </Link>
-                </Banner>
-            </Hero>
+  return (
+    <>
+      <Hero>
+        <Banner title="luxurious rooms" subtitle="deluxe rooms starting at $299">
+          <Link to='/rooms' className="btn-primary">
+            our rooms
+          </Link>
+        </Banner>
+      </Hero>
 
-            <Services />
+      <Services />
 
-            <FeaturedRooms />
-        </>
-    )
+      <FeaturedRooms />
+    </>
+  )
 }
 
