@@ -45,10 +45,17 @@ class RoomProvider extends Component {
     return tempItems
   }
 
+  getRoom = (slug) => {
+    let tempRooms = [...this.state.rooms]
+    // Using find to get the 1st element and add to a constant in form of an object
+    const room = tempRooms.find((room) => room.slug === slug);
+    return room;
+  }
+
   // Rendering the values through all the CoomContext Provider
   render() {
     return (
-      <RoomContext.Provider value={{ ...this.state }}>
+      <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom }}>
         {this.props.children}
       </RoomContext.Provider>
     );
